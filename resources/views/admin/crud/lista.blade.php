@@ -157,7 +157,7 @@ use Illuminate\Support\Str;
                             
                             @else
 
-                                <p> Você nao possui conteudos para {{Str::studly( explode("_",$class)[1] )}} cadastrados.... </p>
+                                <p> Você nao possui conteudos para {{Str::studly($class)}} cadastrados.... </p>
 
                             @endif
 

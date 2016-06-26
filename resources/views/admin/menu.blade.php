@@ -7,9 +7,7 @@
 				<li class="nav-profile">
 
 					<div class="image">
-
-							<i class="fa fa-user" style="margin-left:10px;  margin-top:5px;"></i>
-
+				    	<i class="fa fa-user" style="margin-left:10px;  margin-top:5px;"></i>
 					</div>
 
 					<div class="info">
@@ -38,8 +36,8 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li><a href="/listar/cmp_config">Listar</a></li>
-                    <li><a href="/criar/campanha">Criar</a></li>
+                    <li><a href="/listar/sala">Listar</a></li>
+                    <li><a href="/criar/sala">Criar</a></li>
                 </ul>
 
             </li>
@@ -53,7 +51,7 @@
                 </a>
 
                 <ul class="sub-menu">
-                    <li><a href="/listar/usr_usuario">Listar</a></li>
+                    <li><a href="/listar/user">Listar</a></li>
                 </ul>
 
             </li>

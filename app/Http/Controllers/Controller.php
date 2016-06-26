@@ -15,8 +15,6 @@ use Illuminate\Support\Facades\Redirect;
 use View;
 use Auth;
 
-use App\GbImagem;
-
 class Controller extends BaseController {
 
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
@@ -71,12 +69,12 @@ class Controller extends BaseController {
 
                 if (!preg_match("/b_/",$filtro)) $filtro = "id_".$filtro;
 
-        		if($condicao) $objs = $model::where($filtro,$condicao)->where('id_usr_usuario',Auth::user()->id)->orderBy('created_at','desc')->paginate(50);
-        		else $objs = $model::where($filtro,1)->where('id_usr_usuario',Auth::user()->id)->orderBy('created_at','desc')->paginate(50);
+        		if($condicao) $objs = $model::where($filtro,$condicao)->orderBy('created_at','desc')->paginate(50);
+        		else $objs = $model::where($filtro,1)->orderBy('created_at','desc')->paginate(50);
 
         	} else {
-                if ($class != "usr_usuario")
-        		    $objs = $model::where('id_usr_usuario',Auth::user()->id)->orderBy('created_at','desc')->paginate(50);
+                if ($class != "user")
+        		    $objs = $model::orderBy('created_at','desc')->paginate(50);
                 else 
         	        $objs = $model::orderBy('created_at','desc')->paginate(50);
             }
