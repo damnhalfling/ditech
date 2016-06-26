@@ -11,12 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('login', function () {
     return view('admin.login')->with('feedInsta','');
 });
 
-Route::get('social/login',  'SocialController@validaLogin');
-Route::post('usuario/credencial', 'UsuarioController@credencial');
+Route::post('usuario/cadastrar', 'UsuarioController@criar');
+Route::post('usuario/verificar', 'UsuarioController@verificar');
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -24,6 +24,8 @@ Route::group(['middleware' => 'auth'], function() {
             Auth::logout();
             return Redirect::to('login');
         });
+        
+        Route::get('/', 'UsuarioController@dashboard');
 
        //---------------- Rotas para  CRUD --------------------//
 
