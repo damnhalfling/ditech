@@ -41,6 +41,29 @@
         </div>
     </div>
 
+    <div class="row"> 
+        <div class="col-md-12 ui-sortable">
+            <div class="panel panel-inverse" data-sortable-id="ui-buttons-1" -="">
+                <div class="panel-heading">
+                    <h4 class="panel-title">Reservas </h4>
+                </div>
+                <div class="panel-body">
+                    @foreach($reservas as $reserva)
+                    <div class="row">
+                        <span class="col-md-3"> 
+                            Sala: {{$reserva->sala->nome}}
+                        </span>
+                        <span class="col-md-3">
+                            Data: {{$reserva->datahora}}
+                        </span>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>

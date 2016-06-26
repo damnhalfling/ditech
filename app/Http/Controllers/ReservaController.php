@@ -8,6 +8,7 @@ Use Illuminate\Support\Facades\Input;
 use View;
 use DB;
 use Auth;
+use Redirect;
 
 use \App\Reserva;
 
@@ -28,6 +29,9 @@ class ReservaController extends Controller
             $reserva->datahora = $date;
             $reserva->save();
         }
+
+        return Redirect::back();
+ 
 
 	}
    

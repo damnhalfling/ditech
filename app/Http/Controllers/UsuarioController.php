@@ -13,6 +13,7 @@ use Validator;
 use Hash;
 use \App\User;
 use \App\Sala;
+use \App\Reserva;
 
 class UsuarioController extends Controller
 {
@@ -20,7 +21,11 @@ class UsuarioController extends Controller
     public function dashboard() {
 
         $salas = Sala::all();
-        return View::make('admin.dashboard')->with('salas',$salas);
+        $reservas = Reserva::with('sala')->get();
+
+        return View::make('admin.dashboard')
+            ->with('reservas',$reservas)
+            ->with('salas',$salas);
     
     }
 

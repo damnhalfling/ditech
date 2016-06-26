@@ -13,4 +13,8 @@ class Reserva extends Core
     protected $table = 'reservas';
     protected $softDelete = true;
 
+    public function sala(){
+        return $this->belongsTo('App\Sala', 'id_sala');
+    }
+
 }
