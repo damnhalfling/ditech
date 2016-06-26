@@ -9,10 +9,7 @@
 	        <div class="news-image" style="background-image:url('{{$feedInsta}}'); background-size:cover;"></div>
 	    
 	        <div class="news-caption">
-	            <h4 class="caption-title"><i class="fa fa-diamond text-success"></i> Bem vindo ao admin da Sexy17</h4>
-	            <p>
-	                Agora mais intuivo, atraente e mais facil.... Divirta-se!
-	            </p>
+	            <h4 class="caption-title"><i class="fa fa-diamond text-success"></i> Bem vindo</h4>
 	        </div>
 
 	    </div>
@@ -22,7 +19,7 @@
 	        <div class="login-header">
 	        
 	            <div class="brand">
-	                <span class="logo"></span> {{env('APP_NAME')}}
+	                <span class="logo"></span> Gestor de Salas
 	            </div>
 	            <div class="icon">
 	                <i class="fa fa-sign-in"></i>
@@ -46,7 +43,7 @@
 
                     <hr />
                     
-                        <p class="text-center text-inverse">
+                    <p class="text-center text-inverse">
 	                    &copy; {{env('APP_NAME')}} All Right Reserved 2016
 	                </p>
                 {{ Form::close() }}

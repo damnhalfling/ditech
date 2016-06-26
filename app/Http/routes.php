@@ -14,3 +14,27 @@
 Route::get('/', function () {
     return view('admin.login')->with('feedInsta','');
 });
+
+Route::get('social/login',  'SocialController@validaLogin');
+Route::post('usuario/credencial', 'UsuarioController@credencial');
+
+Route::group(['middleware' => 'auth'], function() {
+
+        Route::get('logout', function() {
+            Auth::logout();
+            return Redirect::to('login');
+        });
+
+       //---------------- Rotas para  CRUD --------------------//
+
+        Route::get('listar/{model}/{filtro?}/{condicao?}',	'Core@listar' );
+        Route::get('editar/{model}/{id}',	    			'Core@editar' );
+        Route::get('novo/{model}/',			    			'Core@editar' );
+
+        Route::post('salvar/{model}',       	'Core@salvar' );
+        Route::post('salvar/{model}/imagem',    'Core@addImagem' );
+        Route::post('excluir/{model}', 			'Core@excluir' );
+
+});
+
+
