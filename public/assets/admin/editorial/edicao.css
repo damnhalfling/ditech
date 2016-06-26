@@ -1,0 +1,66 @@
+	/*ESTILO DE EDIÇÃO*/
+	.conteudo-editar .editControlers, .linha-editar .editControlers, .modulo-editar .editControlers {
+
+		background: #242a30;
+		color: #fff;
+		overflow: hidden;
+		padding: 10px 15px;
+						
+	}
+
+	.conteudo-editar .panel-heading-btn .btn.btn-circle, .linha-editar .panel-heading-btn .btn.btn-circle, .modulo-editar .panel-heading-btn .btn.btn-circle {
+	    border-radius: 50%;
+	    min-width: 0px !important;
+	}
+
+	.conteudo-editar .editControlers .panel-title, .linha-editar .editControlers .panel-title, .modulo-editar .editControlers .panel-title {
+	    line-height: 20px;
+	    font-size: 12px;
+	    float: left;
+	    color:#fff;
+	    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	}
+
+	.conteudo-editar .panel-heading-btn, .linha-editar .panel-heading-btn, .modulo-editar .panel-heading-btn {
+		float: right;
+	}
+
+	.editModulo, .editLinha, .editConteudo{
+		border: 1px solid #c5c5c5;
+		background: #f5f5f5;
+		display: none;
+		width: 500px;
+		z-index: 10000;
+		position: fixed;
+	    overflow: hidden;
+	    padding: 10px;
+
+		top:15%;
+		left:50%;
+		margin-top:10px;
+		margin-left:-250px;
+
+	}
+
+	.editModulo .item-editorial,  .editLinha .item-editorial, .editConteudo .item-editorial{
+		margin-bottom: 10px;
+	}
+
+	.editModulo .item-editorial:last-child, .editLinha .item-editorial:last-child, .editConteudo .item-editorial:last-child{
+		margin-bottom: 0px;
+	}
+
+	.layer-body{
+		background-color: rgba(0, 0, 0, 0.5);
+		z-index: 999;
+	    height: 100%;
+	    width: 100%;
+	    display: none;
+	    border:none;
+	    position: fixed;
+	}
+
+	.carousel-control {
+	    height: 50%;
+	    margin: auto;
+	}

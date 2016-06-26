@@ -46,11 +46,7 @@
 
                     <hr />
                     
-                    <div class="login-buttons">
-                        <a href="{{$fbLoginUrl}}" class="btn btn-primary btn-block btn-lg"><i class="fa fa-facebook"></i></a>
-                    </div>
-                    
-	                <p class="text-center text-inverse">
+                        <p class="text-center text-inverse">
 	                    &copy; {{env('APP_NAME')}} All Right Reserved 2016
 	                </p>
                 {{ Form::close() }}
