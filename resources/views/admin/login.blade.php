@@ -28,10 +28,10 @@
 	                    <input type="text" class="form-control input-lg" name="email" placeholder="Email" />
 	                </div>
 	                <div class="form-group m-b-15">
-	                    <input type="password" class="form-control input-lg" name="senha" placeholder="Senha" />
+	                    <input type="password" class="form-control input-lg" name="password" placeholder="Senha" />
 	                </div>
                     <div class="form-group m-b-15">
-	                    <input type="password" class="form-control input-lg" name="senha_confirmation" placeholder="Corfimação de Senha" />
+	                    <input type="password" class="form-control input-lg" name="password_confirmation" placeholder="Corfimação de Senha" />
 	                </div>
 
 	                <div class="login-buttons">

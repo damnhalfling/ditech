@@ -27,6 +27,8 @@ Route::group(['middleware' => 'auth'], function() {
         
         Route::get('/', 'UsuarioController@dashboard');
 
+        Route::post('reserva/salvar', 'ReservaController@criar');
+
        //---------------- Rotas para  CRUD --------------------//
 
         Route::get('listar/{model}/{filtro?}/{condicao?}',	'Controller@listar' );

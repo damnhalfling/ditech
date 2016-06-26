@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use tinkerbell\Http\Requests;
 Use Illuminate\Support\Facades\Input;
 
 use Redirect;
@@ -13,13 +12,15 @@ use Auth;
 use Validator;
 use Hash;
 use \App\User;
+use \App\Sala;
 
 class UsuarioController extends Controller
 {
  
     public function dashboard() {
 
-        return View::make('admin.dashboard');
+        $salas = Sala::all();
+        return View::make('admin.dashboard')->with('salas',$salas);
     
     }
 
@@ -29,17 +30,17 @@ class UsuarioController extends Controller
 
         $regras = [
                     'email' => 'required|email|unique:usuarios',
-                    'senha' => 'required|confirmed'
+                    'password' => 'required|confirmed'
                 ];
 
-        $validacao = Validator::make(array('email' => $inputs['email'],'senha' => $inputs['senha'],'senha_confirmation' => $inputs['senha_confirmation']), $regras);
+        $validacao = Validator::make(array('email' => $inputs['email'],'password' => $inputs['password'],'password_confirmation' => $inputs['password_confirmation']), $regras);
     
         if ($validacao->fails())
             return Redirect::back()->with("mensagem_erro","Houve um problema ao criar o usuário. Favor verifique os campos obrigatórios. ".$validacao->messages());
 
         $usuario = new User(); 
         $usuario->email = Input::get('email');
-        $usuario->senha = Hash::make( Input::get('senha') );
+        $usuario->password = Hash::make( Input::get('password') );
         $usuario->save();
 
         Auth::login($usuario);
@@ -49,6 +50,8 @@ class UsuarioController extends Controller
     }
 
     public function verificar() {
+        $teste  = Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('senha')));
+
         if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('senha')))) {
             return Redirect::to('/');
         } else {
