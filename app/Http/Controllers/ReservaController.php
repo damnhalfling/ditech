@@ -32,6 +32,7 @@ class ReservaController extends Controller
             $reserva->data       = $data;
             $reserva->hora       = $hora;
             $reserva->save();
+            $msg = "Sala reservada";
         }
 
         if($salaReservada) $msg = "Sala já reservada";

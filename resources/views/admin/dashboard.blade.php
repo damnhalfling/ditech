@@ -12,9 +12,8 @@
         <div class="col-md-12 ui-sortable">
 
             @if(Session::has('msg'))
-            <div class="alert alert-danger fade in m-b-15">
-                <strong>Error!</strong>
-                {{Session::get('msg')}}
+            <div class="alert alert-warning fade in m-b-15">
+                <strong>{{Session::get('msg')}}</strong>
                 <span class="close" data-dismiss="alert">×</span>
             </div>
             @endif
