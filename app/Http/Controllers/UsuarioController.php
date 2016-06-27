@@ -38,7 +38,12 @@ class UsuarioController extends Controller
             $reservaAtual['title'] = $reserva->sala->nome;
             $reservaAtual['start'] = $reserva->data."T".$reserva->hora.":00";
             $reservaAtual['end'] = "";
-            $reservaAtual['color'] = '#00aca'; 
+            
+            if($reserva->id_usuario == Auth::user()->id) {
+                $reservaAtual['color'] = '#00aca';
+            } else {
+                $reservaAtual['color'] = '#ff5b57';
+            }
 
             $todasReservas[] = $reservaAtual;   
 

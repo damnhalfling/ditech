@@ -83,7 +83,7 @@
   
 
   @yield('script')
-<script src="/assets/admin/plugins/fullcalendar/lib/moment.min.js"></script>script>  
+<script src="/assets/admin/plugins/fullcalendar/lib/moment.min.js"></script> 
 <script src="/assets/admin/plugins/fullcalendar/fullcalendar.min.js"></script>
   <script src="/assets/admin/js/calendar.demo.js"></script>
   <script src="/assets/admin/js/form-plugins.demo.js"></script>

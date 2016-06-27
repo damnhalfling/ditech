@@ -27,11 +27,18 @@
 		
 		<ul class="nav">
 
+             <li class="has-sub">
+                <a href="/">
+                    <i class="fa fa-calendar"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
             <li class="has-sub">
 
                 <a href="javascript:;">
                     <b class="caret pull-right"></b>
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-map-marker"></i>
                     <span> Salas </span>
                 </a>
 

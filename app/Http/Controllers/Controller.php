@@ -101,8 +101,6 @@ class Controller extends BaseController {
 
 		if ($id) {
 			$obj = $model::find($id);
-                   $imagens = GbImagem::get();
-                   $multipart = true;
 
 			return View::make('admin.crud.form')
 						->with('relacoes', $relacoes)

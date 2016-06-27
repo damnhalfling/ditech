@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function() {
 
         Route::get('listar/{model}/{filtro?}/{condicao?}',	'Controller@listar' );
         Route::get('editar/{model}/{id}',	    			'Controller@editar' );
-        Route::get('novo/{model}/',			    			'Controller@editar' );
+        Route::get('criar/{model}/',			    			'Controller@editar' );
 
         Route::post('salvar/{model}',       	'Controller@salvar' );
         Route::post('excluir/{model}', 			'Controller@excluir' );

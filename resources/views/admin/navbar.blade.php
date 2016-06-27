@@ -18,33 +18,6 @@
     
     <ul class="nav navbar-nav navbar-right">
 
-      <li class="dropdown">
-      
-        <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle f-s-14">
-        
-          <i class="fa fa-bell-o"></i>
-
-        </a>
-
-        <ul class="dropdown-menu media-list pull-right animated fadeInDown">
-
-          <li class="media">
-              <a href="/email">
-                  <div class="media-left"><i class="fa fa-envelope media-object bg-blue"></i></div>
-                  <div class="media-body">
-                      <h6 class="media-heading"> Emails não lidos </h6>
-                  </div>
-              </a>
-          </li>
-
-          <li class="dropdown-footer text-center">
-              <a href="javascript:;">View more</a>
-          </li>
-
-        </ul>
-
-      </li>
-
       <li class="dropdown navbar-user">
       
         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -65,10 +38,6 @@
 
         <ul class="dropdown-menu animated fadeInLeft">
         
-          <li class="arrow"></li>
-          <li><a href="/email"> Inbox</a></li>
-          <li><a href="/config">Setting</a></li>
-          <li class="divider"></li>
           <li><a href="/logout">Log Out</a></li>
 
         </ul>

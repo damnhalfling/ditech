@@ -32,11 +32,11 @@ class ReservaController extends Controller
             $reserva->data       = $data;
             $reserva->hora       = $hora;
             $reserva->save();
-            $msg = "Sala reservada";
+            $msg = "<strong> Sala reservada com sucesso </strong>";
         }
 
-        if($salaReservada) $msg = "Sala já reservada";
-        if($reserveiEsteHorario) $msg .= " Você já possui reservas neste horário";
+        if($salaReservada) $msg = "<strong> Erro! Sala já está reservada para este horário </strong>";
+        if($reserveiEsteHorario) $msg .= "<strong> Erro! Você já possui reservas neste horário </strong>";
 
         return Redirect::back()->with('msg',$msg);
  
