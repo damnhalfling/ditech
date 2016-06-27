@@ -21,7 +21,7 @@ class UsuarioController extends Controller
     public function dashboard() {
 
         $salas = Sala::all();
-        $reservas = Reserva::with('sala')->get();
+        $reservas = Reserva::with('sala')->where('id_usuario',Auth::user()->id)->get();
         $horas = [];    
         $sala = new Reserva();
         $colunas = $sala->getColumns();

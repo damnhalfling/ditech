@@ -18,7 +18,7 @@
                     @foreach($salas as $sala)
                     <div class="row">
                         {{ Form::open(['url' => '/reserva/salvar', 'method' => 'POST', 'class' => "margin-bottom-0"]) }}
-                            <input type="hidden" value="{{$sala->id}}" disabled>
+                            <input type="hidden" name="sala" value="{{$sala->id}}">
                             <span class="col-md-3"> 
                                 <label>Salas: {{$sala->id}}</label>
                             </span>
@@ -30,7 +30,7 @@
                                 <label>Hora de início</label>
                                 <select name="horaInicio">
                                     @foreach($horas['opcoes'] as $h)
-                                        <option value="$h"> {{$h}} </option>
+                                        <option value="{{$h}}"> {{$h}} </option>
                                     @endforeach
                                 </select>
                             </span>
@@ -49,7 +49,7 @@
         <div class="col-md-12 ui-sortable">
             <div class="panel panel-inverse" data-sortable-id="ui-buttons-1" -="">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Salas e horários reservados </h4>
+                    <h4 class="panel-title">Minhas reservas </h4>
                 </div>
                 <div class="panel-body">
                     @foreach($reservas as $reserva)
