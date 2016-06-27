@@ -60,7 +60,7 @@
                     <h4 class="panel-title">Minhas reservas </h4>
                 </div>
                 <div class="panel-body">
-                    @foreach($reservas as $reserva)
+                    @foreach($minhasReservas as $reserva)
                     {{ Form::open(['url' => '/excluir/reserva', 'method' => 'POST', 'class' => "margin-bottom-0"]) }}
                         <input type="hidden" name="id" value="{{$reserva->id}}">
                         <div class="row">
@@ -84,7 +84,17 @@
         </div>
     </div>
 
-
+    <div class="panel panel-inverse">
+        <div class="panel-heading">
+            <h4 class="panel-title">Calendar</h4>
+        </div>
+        <div class="panel-body p-0">
+            <div class="vertical-box">
+                <div id="calendar" class="vertical-box-column p-15 calendar"></div>
+            </div>
+        </div>
+    </div>
+    
 </div>
 
 <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
@@ -92,5 +102,9 @@
 @stop
 
 @section('script')
+
+<script>
+    var todasReservas = {!! $todasReservas !!}
+</script>
 
 @stop

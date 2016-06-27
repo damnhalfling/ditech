@@ -21,7 +21,8 @@ class UsuarioController extends Controller
     public function dashboard() {
 
         $salas = Sala::all();
-        $reservas = Reserva::with('sala')->where('id_usuario',Auth::user()->id)->orderBy('data','ASC')->orderBy('hora','ASC')->get();
+        $minhasReservas = Reserva::with('sala')->where('id_usuario',Auth::user()->id)->orderBy('data','ASC')->orderBy('hora','ASC')->get();
+        $todasReservas = [];
         $horas = [];    
         $sala = new Reserva();
         $colunas = $sala->getColumns();
@@ -32,8 +33,22 @@ class UsuarioController extends Controller
             }
         }
 
+        foreach(Reserva::with('sala')->get() as $reserva){
+        
+            $reservaAtual['title'] = $reserva->sala->nome;
+            $reservaAtual['start'] = $reserva->data."T".$reserva->hora.":00";
+            $reservaAtual['end'] = "";
+            $reservaAtual['color'] = '#00aca'; 
+
+            $todasReservas[] = $reservaAtual;   
+
+        }
+
+        $todasReservas = json_encode($todasReservas);
+
         return View::make('admin.dashboard')
-            ->with('reservas',$reservas)
+            ->with('todasReservas',$todasReservas)
+            ->with('minhasReservas',$minhasReservas)
             ->with('horas',$horas)
             ->with('salas',$salas);
     

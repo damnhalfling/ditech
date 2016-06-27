@@ -19,7 +19,7 @@
     <link href="/assets/admin/css/style.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/style-responsive.min.css" rel="stylesheet" />
     <link href="/assets/admin/css/theme/default.css" rel="stylesheet" id="theme" />
-    <!-- ================== END BASE CSS STYLE ================== -->
+       <!-- ================== END BASE CSS STYLE ================== -->
 
         <style> 
         .modal-backdrop{
@@ -28,7 +28,10 @@
         </style>
 
     @yield('style')
-    
+   
+    <link href="/assets/admin/plugins/fullcalendar/fullcalendar.print.css" rel="stylesheet" media='print' />
+    <link href="/assets/admin/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" />
+ 
     <!-- ================== BEGIN BASE JS ================== -->
     <script src="/assets/admin/plugins/pace/pace.min.js"></script>
     <!-- ================== END BASE JS ================== -->
@@ -80,13 +83,16 @@
   
 
   @yield('script')
-
+<script src="/assets/admin/plugins/fullcalendar/lib/moment.min.js"></script>script>  
+<script src="/assets/admin/plugins/fullcalendar/fullcalendar.min.js"></script>
+  <script src="/assets/admin/js/calendar.demo.js"></script>
   <script src="/assets/admin/js/form-plugins.demo.js"></script>
   <script src="/assets/admin/js/apps.js"></script>
     
   <script>
       $(document).ready(function() {
           App.init();
+          Calendar.init();
           FormPlugins.init();
       });
   </script>
