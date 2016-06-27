@@ -12,30 +12,34 @@
         <div class="col-md-12 ui-sortable">
             <div class="panel panel-inverse" data-sortable-id="ui-buttons-1" -="">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Reservar salas</h4>
+                    <h4 class="panel-title">Salas e horários disponiveis</h4>
                 </div>
                 <div class="panel-body">
-                    {{ Form::open(['url' => '/reserva/salvar', 'method' => 'POST', 'class' => "margin-bottom-0"]) }}
-                        <span class="col-md-3"> 
-                            <label>Salas:</label>
-                            <select name="sala">
-                                @foreach($salas as $sala)
-                                    <option value="{{$sala->id}}">{{$sala->nome}}</option>
-                                @endforeach
-                            </select>
-                        </span>
-                        <span class="col-md-3">
-                            <label>Data:</label>
-                            <input type="text" name="data">
-                        </span>
-                        <span class="col-md-4">
-                            <label>Hora de início</label>
-                            <input type="text" name="horaInicio">
-                        </span>
-                        <span>
-                            <input type="submit" value="Reservar">
-                        </span>
-                    {{Form::close()}}
+                    @foreach($salas as $sala)
+                    <div class="row">
+                        {{ Form::open(['url' => '/reserva/salvar', 'method' => 'POST', 'class' => "margin-bottom-0"]) }}
+                            <input type="hidden" value="{{$sala->id}}" disabled>
+                            <span class="col-md-3"> 
+                                <label>Salas: {{$sala->id}}</label>
+                            </span>
+                            <span class="col-md-3">
+                                <label>Data:</label>
+                                <input type="text" name="data">
+                            </span>
+                            <span class="col-md-4">
+                                <label>Hora de início</label>
+                                <select name="horaInicio">
+                                    @foreach($horas['opcoes'] as $h)
+                                        <option value="$h"> {{$h}} </option>
+                                    @endforeach
+                                </select>
+                            </span>
+                            <span>
+                                <input type="submit" value="Reservar">
+                            </span>
+                        {{Form::close()}}
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -45,16 +49,19 @@
         <div class="col-md-12 ui-sortable">
             <div class="panel panel-inverse" data-sortable-id="ui-buttons-1" -="">
                 <div class="panel-heading">
-                    <h4 class="panel-title">Reservas </h4>
+                    <h4 class="panel-title">Salas e horários reservados </h4>
                 </div>
                 <div class="panel-body">
                     @foreach($reservas as $reserva)
                     <div class="row">
                         <span class="col-md-3"> 
-                            Sala: {{$reserva->sala->nome}}
+                           <label> {{$reserva->sala->nome}} </label>
                         </span>
                         <span class="col-md-3">
-                            Data: {{$reserva->datahora}}
+                            <label> Data: {{$reserva->data}}</label>
+                        </span>
+                         <span class="col-md-3">
+                            <label> Hora de início: {{$reserva->hora}}</label>
                         </span>
                     </div>
                     @endforeach

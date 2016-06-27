@@ -22,9 +22,19 @@ class UsuarioController extends Controller
 
         $salas = Sala::all();
         $reservas = Reserva::with('sala')->get();
+        $horas = [];    
+        $sala = new Reserva();
+        $colunas = $sala->getColumns();
+
+        foreach($colunas as $coluna){
+            if($coluna['campo'] == 'hora'){
+                $horas = $coluna;
+            }
+        }
 
         return View::make('admin.dashboard')
             ->with('reservas',$reservas)
+            ->with('horas',$horas)
             ->with('salas',$salas);
     
     }
