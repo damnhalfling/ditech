@@ -53,17 +53,23 @@
                 </div>
                 <div class="panel-body">
                     @foreach($reservas as $reserva)
-                    <div class="row">
-                        <span class="col-md-3"> 
-                           <label> {{$reserva->sala->nome}} </label>
-                        </span>
-                        <span class="col-md-3">
-                            <label> Data: {{$reserva->data}}</label>
-                        </span>
-                         <span class="col-md-3">
-                            <label> Hora de início: {{$reserva->hora}}</label>
-                        </span>
-                    </div>
+                    {{ Form::open(['url' => '/excluir/reserva', 'method' => 'POST', 'class' => "margin-bottom-0"]) }}
+                        <input type="hidden" name="id" value="{{$reserva->id}}">
+                        <div class="row">
+                            <span class="col-md-3"> 
+                               <label> {{$reserva->sala->nome}} </label>
+                            </span>
+                            <span class="col-md-3">
+                                <label> Data: {{$reserva->data}}</label>
+                            </span>
+                             <span class="col-md-3">
+                                <label> Hora de início: {{$reserva->hora}}</label>
+                            </span>
+                            <span>
+                                <input type="submit" value="Excluir">
+                            </span>
+                        </div>
+                    {{Form::close()}}
                     @endforeach
                 </div>
             </div>

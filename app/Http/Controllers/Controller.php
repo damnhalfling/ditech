@@ -212,21 +212,18 @@ class Controller extends BaseController {
 	public function excluir($class) {
 
 		$model = 'App\\'.Str::studly($class);
-		$menssagem['tipo'] = "danger";
-		$menssagem['msg']  = "Houve um problema ao excluir a o item";
+		$msg  = "Houve um problema ao excluir a o item";
 	
 		$id = Input::get("id");
 
 		if ($id != 0) {
 			
 			$model::destroy($id);
-			
-			$menssagem['tipo'] = "success";
-			$menssagem['msg']  = "Item excluido com sucesso";
+			$msg  = "Item excluido com sucesso";
 
 		}
 
-		return $menssagem;
+	    return Redirect::back()->with('msg',$msg);
 
 	}
     
