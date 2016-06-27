@@ -20,10 +20,12 @@ class ReservaController extends Controller
         $inputs = Input::all();
         $data   = $inputs['data'];
         $hora   = $inputs['horaInicio'];
+        $msg    = "";
 
-        $exists = Reserva::where('id_sala',$inputs['sala'])->where('data',$data)->where('hora',$hora)->first();
+        $salaReservada = Reserva::where('id_sala',$inputs['sala'])->where('data',$data)->where('hora',$hora)->first();
+        $reserveiEsteHorario = Reserva::where('id_usuario',Auth::user()->id)->where('data',$data)->where('hora',$hora)->first();
 
-        if (!$exists) {
+        if (!$salaReservada && !$reserveiEsteHorario) {
             $reserva = new Reserva();
             $reserva->id_usuario = Auth::user()->id;
             $reserva->id_sala    = $inputs['sala'];
@@ -32,7 +34,10 @@ class ReservaController extends Controller
             $reserva->save();
         }
 
-        return Redirect::back();
+        if($salaReservada) $msg = "Sala já reservada";
+        if($reserveiEsteHorario) $msg .= " Você já possui reservas neste horário";
+
+        return Redirect::back()->with('msg',$msg);
  
 
 	}

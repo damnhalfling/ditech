@@ -10,6 +10,15 @@
 
     <div class="row"> 
         <div class="col-md-12 ui-sortable">
+
+            @if(Session::has('msg'))
+            <div class="alert alert-danger fade in m-b-15">
+                <strong>Error!</strong>
+                {{Session::get('msg')}}
+                <span class="close" data-dismiss="alert">×</span>
+            </div>
+            @endif
+            
             <div class="panel panel-inverse" data-sortable-id="ui-buttons-1" -="">
                 <div class="panel-heading">
                     <h4 class="panel-title">Salas e horários disponiveis</h4>
